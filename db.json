@@ -28,6 +28,30 @@
       "experience": 3,
       "salary": 13000,
       "id": 1
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "email": "easdas@gmail.com",
+      "bornDate": "2023-05-14T21:00:00.000Z",
+      "gender": "female",
+      "education": "Intermediate",
+      "company": "Microsoft",
+      "experience": 3,
+      "salary": 9000,
+      "id": 2
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "bornDate": "",
+      "gender": "",
+      "education": "",
+      "company": "",
+      "experience": "",
+      "salary": "",
+      "id": 3
     }
   ]
 }

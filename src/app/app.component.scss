@@ -2,17 +2,73 @@
   flex: 1 1 auto;
 }
 
+header {
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 10px;
+  color: #3f51b5d8;
+}
+
 .main-body {
-  padding-top: 20px;
-  max-width: 1248px;
+  background-color: #fff;
+  margin: 10px 20px;
+  border: 2px solid #3f51b5d8;
+  border-radius: .25em;
+
+  mat-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    mat-icon {
+      font-size: 1.4em;
+      color: inherit;
+    }
+  }
 
   mat-form-field {
     width: 100%;
+  }
+
+  mat-form-field ::ng-deep .mat-mdc-text-field-wrapper {
+    background-color: inherit;
   }
 
   .my-paginator {
     display: flex;
     justify-content: center;
   }
+
+  .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .table-scroll::-webkit-scrollbar {
+    width: .1em;
+  }
+
+  .table-scroll::-webkit-scrollbar-thumb {
+    background-color: #3f51b5d8;
+    border-radius: .25em;
+  }
+
+  .table-scroll::-webkit-scrollbar-track {
+    background-color: #3f51b545;
+  }
 }
 
+footer {
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #3f51b545;
+  display: flex;
+
+  .social {
+    width: 15%;
+    display: flex;
+    justify-content: space-around;
+  }
+}
