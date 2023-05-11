@@ -16,4 +16,9 @@ export class ContactService {
   getContacts(): Observable<any> {
     return this._http.get('http://localhost:3000/contacts')
   }
+
+  deleteContact(id: number): Observable<any> {
+    return this._http.delete(`http://localhost:3000/contacts/${id}`)
+  }
+
 }

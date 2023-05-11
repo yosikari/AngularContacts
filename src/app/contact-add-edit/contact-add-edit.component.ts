@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ContactService } from '../services/contact.service';
-import { DialogRef } from '@angular/cdk/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-contact-add-edit',
@@ -25,7 +25,7 @@ export class ContactAddEditComponent {
   ]
 
   constructor(private _fb: FormBuilder, private _contactService: ContactService
-    ,private _dialogRef: DialogRef<ContactAddEditComponent>) {
+    ,private _dialogRef:MatDialogRef<ContactAddEditComponent>) {
     this.contactForm = this._fb.group({
       firstName: '',
       lastName: '',
@@ -45,7 +45,7 @@ export class ContactAddEditComponent {
         .subscribe({
           next: (val: any) => {
             alert('Contact added successfully')
-            this._dialogRef.close()
+            this._dialogRef.close(true)
         },
           error: (err) => {
             console.log(err)

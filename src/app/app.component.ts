@@ -12,7 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class AppComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'gender', 'bornDate', 'education', 'experience', 'salary', 'company']
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'gender', 'bornDate', 'education', 'experience', 'salary', 'company', 'action']
   dataSource!: MatTableDataSource<any>
 
   @ViewChild(MatPaginator) paginator!: MatPaginator
@@ -28,7 +28,12 @@ export class AppComponent implements OnInit {
   }
 
   openAddEditContactFrom() {
-    this._dialog.open(ContactAddEditComponent)
+    const dialogRef = this._dialog.open(ContactAddEditComponent)
+    dialogRef.afterClosed().subscribe({
+      next: (isSubmit) => {
+        if (isSubmit) this.getContacts()
+      }
+    })
   }
 
   getContacts() {
@@ -52,4 +57,17 @@ export class AppComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  deleteContact(id: number) {
+    this._contactService.deleteContact(id).subscribe({
+      next: (res) => {
+        alert('Contact deleted')
+        this.getContacts()
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+  }
+
 }

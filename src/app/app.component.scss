@@ -62,13 +62,15 @@ footer {
   padding: 10px 20px;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
+  box-sizing: border-box;
   background-color: #3f51b545;
   display: flex;
+  justify-content: space-between;
 
-  .social {
-    width: 15%;
+  .social{
+    width: 110px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 }
