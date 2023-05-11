@@ -35,7 +35,7 @@ export class ContactAddEditComponent {
       education: '',
       company: '',
       experience: '',
-      package: '',
+      salary: '',
     })
   }
 
@@ -48,7 +48,7 @@ export class ContactAddEditComponent {
             this._dialogRef.close()
         },
           error: (err) => {
-            console.error(err)
+            console.log(err)
           }
         })
     }
