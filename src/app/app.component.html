@@ -55,7 +55,7 @@
         <!-- Born Date Column -->
         <ng-container matColumnDef="bornDate">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Born Date </th>
-          <td mat-cell *matCellDef="let row"> {{row.bornDate | date:'dd/MM/yy'}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.bornDate | date:'dd/MM/yy'}} ({{calculateAge(row.bornDate)}} y/o) </td>
         </ng-container>
 
         <!-- Education Column -->

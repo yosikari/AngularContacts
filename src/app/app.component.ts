@@ -70,4 +70,17 @@ export class AppComponent implements OnInit {
     })
   }
 
+  calculateAge(bornDate: string): number {
+    const birthDate = new Date(bornDate)
+    const today = new Date()
+
+    let age = today.getFullYear() - birthDate.getFullYear()
+
+    // Check if the birthday has not occurred yet this year
+    const hasBirthdayOccurred = today.getMonth() > birthDate.getMonth() ||
+      (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate())
+    if (!hasBirthdayOccurred) age--
+    return age
+  }
+
 }
