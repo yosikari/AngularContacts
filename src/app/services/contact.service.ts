@@ -13,6 +13,10 @@ export class ContactService {
     return this._http.post('http://localhost:3000/contacts', data)
   }
 
+  updateContact(id: number,data: any): Observable<any> {
+    return this._http.put(`http://localhost:3000/contacts/${id}`, data)
+  }
+
   getContacts(): Observable<any> {
     return this._http.get('http://localhost:3000/contacts')
   }

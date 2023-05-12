@@ -23,9 +23,9 @@
       "email": "johndoe@example.com",
       "bornDate": "1985-06-15T00:00:00.000Z",
       "gender": "male",
-      "education": "Bachelor's Degree",
+      "education": "Diploma",
       "company": "Microsoft",
-      "experience": 5,
+      "experience": 6,
       "salary": 50000,
       "id": 1
     },

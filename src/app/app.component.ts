@@ -70,6 +70,18 @@ export class AppComponent implements OnInit {
     })
   }
 
+  openEditContactFrom(data: any) {
+    const dialogRef = this._dialog.open(ContactAddEditComponent, {
+      data
+    })
+
+    dialogRef.afterClosed().subscribe({
+      next: (isSubmit) => {
+        if (isSubmit) this.getContacts()
+      }
+    })
+  }
+
   calculateAge(bornDate: string): number {
     const birthDate = new Date(bornDate)
     const today = new Date()
