@@ -5,6 +5,7 @@ import { ContactService } from './services/contact.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { CoreService } from './core/core.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,7 +21,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private _dialog: MatDialog,
-    private _contactService: ContactService
+    private _contactService: ContactService,
+    private _coreService: CoreService
   ) { }
 
   ngOnInit(): void {
@@ -61,10 +63,11 @@ export class AppComponent implements OnInit {
   deleteContact(id: number) {
     this._contactService.deleteContact(id).subscribe({
       next: (res) => {
-        alert('Contact deleted')
+        this._coreService.openSnackBar('Contact deleted successfully.')
         this.getContacts()
       },
       error: (err) => {
+        this._coreService.openSnackBar('Something went wrong.')
         console.log(err)
       }
     })

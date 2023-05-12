@@ -1,7 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ContactService } from '../services/contact.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { CoreService } from '../core/core.service';
+
 
 @Component({
   selector: 'app-contact-add-edit',
@@ -28,22 +30,27 @@ export class ContactAddEditComponent implements OnInit {
     this.contactForm.patchValue(this.data)
   }
 
+  get genderControl() {
+    return this.contactForm.get('gender')
+  }
+
   constructor(
     private _fb: FormBuilder,
     private _contactService: ContactService,
     private _dialogRef: MatDialogRef<ContactAddEditComponent>,
+    private _coreService: CoreService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.contactForm = this._fb.group({
-      firstName: '',
-      lastName: '',
-      email: '',
-      bornDate: '',
-      gender: '',
-      education: '',
-      company: '',
-      experience: '',
-      salary: '',
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      bornDate: ['', Validators.required],
+      gender: ['', Validators.required],
+      education: ['', Validators.required],
+      company: ['', Validators.required],
+      experience: ['', Validators.required],
+      salary: ['', Validators.required]
     })
   }
 
@@ -53,10 +60,11 @@ export class ContactAddEditComponent implements OnInit {
         this._contactService.updateContact(this.data.id, this.contactForm.value)
           .subscribe({
             next: (val: any) => {
-              alert('Contact updated successfully')
+              this._coreService.openSnackBar('Contact updated successfully.')
               this._dialogRef.close(true)
             },
             error: (err) => {
+              this._coreService.openSnackBar('Something went wrong.')
               console.log(err)
             }
           })
@@ -64,10 +72,11 @@ export class ContactAddEditComponent implements OnInit {
         this._contactService.addContact(this.contactForm.value)
           .subscribe({
             next: (val: any) => {
-              alert('Contact added successfully')
+              this._coreService.openSnackBar('Contact added successfully.')
               this._dialogRef.close(true)
             },
             error: (err) => {
+              this._coreService.openSnackBar('Something went wrong.')
               console.log(err)
             }
           })
