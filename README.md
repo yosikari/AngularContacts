@@ -109,4 +109,4 @@ If you have any questions or feedback about the project, please feel free to rea
 <img src="readme-media/server.png" weight='600' />
 
 #### Json endpoint view
-<img src="readme-media/json-endpoint" weight='600' />
+<img src="readme-media/json-endpoint.png" weight='600' />
