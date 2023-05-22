@@ -88,7 +88,7 @@ If you have any questions or feedback about the project, please feel free to rea
 ### Gallery
 
 #### Add Contact
-<img src="readme-media/add.gif" width="600" />
+<img src="readme-media/add-gif.gif" width="600" />
 
 #### Add Contact Modal
 <img src="readme-media/add-modal.png" width="600" />
